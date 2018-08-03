@@ -355,7 +355,7 @@ Function Pack([Recipe] $recipe) {
             $destination = Join-Path $component.packageDist ($component.name + ".latest.zip")
             if (-not (Test-path $component.packageDist)) { new-item -Name $component.packageDist -ItemType directory }
             if (Test-path $destination) { Remove-item $destination -Force -ErrorAction SilentlyContinue }
-            Compress-Archive -Path $source -CompressionLevel Optimal -DestinationPath $destination
+            # Compress-Archive -Path $source -CompressionLevel Optimal -DestinationPath $destination
         }
         if ($LastExitCode -ne 0) {
             $error = $true
